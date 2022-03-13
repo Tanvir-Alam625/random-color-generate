@@ -59,6 +59,8 @@ main .btn button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 .color h3 {
   font-size: 30px;
@@ -75,4 +77,23 @@ main .btn button:focus {
 }
 .color-box {
   width: 100%;
+}
+.copy-icon {
+  border: 1px solid rebeccapurple;
+  border-right: 0;
+  padding: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  -moz-box-shadow: inset 10px 10px 50px #fff;
+  -webkit-box-shadow: inset 10px 10px 50px #fff;
+  box-shadow: inset 10px 10px 50px #fff;
+  background: red;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  transform: translateX(150%);
+  transition: 300ms ease-in-out;
+}
+.color:hover .copy-icon {
+  transform: translateX(0%);
 }
