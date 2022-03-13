@@ -1,20 +1,19 @@
 // button Selection
 const button = document.getElementById('random-btn');
-// console.log(button);
 button.addEventListener('click',function(){
-    // color calling function
-    const myColor1 = coloGenerate1()
-    const myColor2 = coloGenerate3()
-    const myColor3 = coloGenerate3()
+    // create the random color
+    const red = Math.round(Math.random()*256);
+    const green = Math.round(Math.random()*256);
+    const blue = Math.round(Math.random()*256);
     // add multiple box 
     const parent = document.getElementById('parent');
     const otherDiv = document.createElement('div')
     otherDiv.classList.add('other');
     const child = `
-    <div id="color-display" style="background-color: rgb(${myColor1},${myColor2},${myColor3}); cursor: pointer" class="color">
-        <h3 id="color-text" disabled >rgb(${myColor1},${myColor2},${myColor3});</h3>
+    <div id="color-display" style="background-color: rgb(${red},${green},${blue}); cursor: pointer" class="color">
+        <h3 id="color-text" disabled >rgb(${red},${green},${blue});</h3>
     </div>
-        <span style="color: rgb(${myColor1},${myColor2},${myColor3}); display:none">Copied</span>
+        <span style="color: rgb(${red},${green},${blue}); display:none">Copied</span>
     `;
     // set value
     otherDiv.innerHTML = child;
@@ -37,7 +36,7 @@ function getColorValue(text){
     input.value = text;
     input.focus();
     input.select();
-    document.execCommand('copy');
+    navigator.clipboard.writeText(input.value)
     input.parentNode.removeChild(input);
 
 }
